@@ -30,14 +30,29 @@ public class ObjectPool : MonoBehaviour
     public void InstantiateOP(
         GameObject original, Vector3 position, Quaternion rotation)
     {
-        var newGo = Instantiate(original, position, rotation);
-        totalGoCount = opGoList.Count;
-        if (totalGoCount >= capacity)
-            capacity += addedCapaValue;
-        
-        opGoList.Add(newGo);
+        // 비활성화된 오브젝트가 있으면 그걸 꺼내오자
+        bool isPopping = false;
+        foreach (var item in opGoList)
+        {
+            if (item.activeSelf == false)
+            {
+                item.SetActive(true);
+                isPopping = true;
+                break;
+            }
+        }
+        if (isPopping == false)
+        {
+            var newGo = Instantiate(original, position, rotation);
+            opGoList.Add(newGo);
+            totalGoCount = opGoList.Count;
+            if (totalGoCount >= capacity)
+                capacity += addedCapaValue;
+
+            totalGoCount++;
+        }
+
         curGoCount++;
-        totalGoCount++;
 
         if (totalGoCount > validGoCount)
         {
