@@ -15,7 +15,7 @@ public class ObjectPool : MonoBehaviour
 
     [SerializeField] int capacity = 8;
     [SerializeField] int addedCapaValue = 4;
-    [SerializeField] float validGoCount = 10;
+    [SerializeField] int validGoCount = 10;
     [SerializeField] float validGoTime = 10;
     [SerializeField] static List<GameObject> opGoList = new List<GameObject>();
 
