@@ -31,19 +31,18 @@ public class ObjectPool : MonoBehaviour
         GameObject original, Vector3 position, Quaternion rotation)
     {
         var newGo = Instantiate(original, position, rotation);
-        var objCount = opGoList.Count;
-        if (objCount >= capacity)
+        totalGoCount = opGoList.Count;
+        if (totalGoCount >= capacity)
             capacity += addedCapaValue;
-
+        
         opGoList.Add(newGo);
-        objCount++;
-        curGoCount = objCount;
-        totalGoCount = objCount;
+        curGoCount++;
+        totalGoCount++;
 
-        if (objCount > validGoCount)
+        if (totalGoCount > validGoCount)
         {
             StopCo(validChkCoHandle);
-            validChkCoHandle = StartCoroutine(validChkCo(objCount));
+            validChkCoHandle = StartCoroutine(validChkCo(totalGoCount));
         }
     }
 
