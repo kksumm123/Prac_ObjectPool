@@ -785,7 +785,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   capacity: 8
   addedCapaValue: 4
-  validTime: 10
+  curGoCount: 0
+  totalGoCount: 0
+  validGoCount: 10
+  validGoTime: 5
 --- !u!1 &1707465962
 GameObject:
   m_ObjectHideFlags: 0

@@ -18,7 +18,7 @@ public class ObjectPool : MonoBehaviour
     [SerializeField] int curGoCount;
     [SerializeField] int totalGoCount;
     [SerializeField] int validGoCount = 10;
-    [SerializeField] float validGoTime = 10;
+    [SerializeField] float validGoTime = 5;
     [SerializeField] static List<GameObject> opGoList = new List<GameObject>();
 
     Coroutine validChkCoHandle;
