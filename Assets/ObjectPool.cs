@@ -37,6 +37,7 @@ public class ObjectPool : MonoBehaviour
             if (item.activeSelf == false)
             {
                 item.SetActive(true);
+                item.transform.parent = null;
                 isPopping = true;
                 break;
             }
@@ -48,8 +49,6 @@ public class ObjectPool : MonoBehaviour
             totalGoCount = opGoList.Count;
             if (totalGoCount >= capacity)
                 capacity += addedCapaValue;
-
-            totalGoCount++;
         }
 
         curGoCount++;
