@@ -51,7 +51,7 @@ public class ObjectPool : MonoBehaviour
     private IEnumerator validChkCo(int objCount)
     {
         yield return new WaitForSeconds(validGoTime);
-        for (int i = 0; i < objCount; i++)
+        for (int i = 0; i < objCount - validGoCount; i++)
         {
             opGoList[i].transform.parent = transform;
             opGoList[i].SetActive(false);
