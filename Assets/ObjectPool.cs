@@ -15,6 +15,8 @@ public class ObjectPool : MonoBehaviour
 
     [SerializeField] int capacity = 8;
     [SerializeField] int addedCapaValue = 4;
+    [SerializeField] int curGoCount;
+    [SerializeField] int totalGoCount;
     [SerializeField] int validGoCount = 10;
     [SerializeField] float validGoTime = 10;
     [SerializeField] static List<GameObject> opGoList = new List<GameObject>();
@@ -35,6 +37,8 @@ public class ObjectPool : MonoBehaviour
 
         opGoList.Add(newGo);
         objCount++;
+        curGoCount = objCount;
+        totalGoCount = objCount;
 
         if (objCount > validGoCount)
         {
@@ -56,5 +60,7 @@ public class ObjectPool : MonoBehaviour
             opGoList[i].transform.parent = transform;
             opGoList[i].SetActive(false);
         }
+        curGoCount = objCount - validGoCount;
+        totalGoCount = objCount;
     }
 }
