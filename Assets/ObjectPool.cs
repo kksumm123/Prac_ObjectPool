@@ -34,6 +34,7 @@ public class ObjectPool : MonoBehaviour
             capacity += addedCapaValue;
 
         opGoList.Add(newGo);
+        objCount++;
 
         if (objCount > validGoCount)
         {
