@@ -23,7 +23,7 @@ public class Spawner : MonoBehaviour
             pos.x += Random.Range(-randX, randX);
             pos.y += calcY;
             pos.z += Random.Range(-randZ, randZ);
-            Instantiate(sphere, pos, transform.rotation);
+            ObjectPool.instance.InstantiateOP(sphere, pos, transform.rotation);
         }
     }
 }
