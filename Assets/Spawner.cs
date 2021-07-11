@@ -19,11 +19,20 @@ public class Spawner : MonoBehaviour
     {
         if(Input.GetKey(KeyCode.Alpha1))
         {
-            Vector3 pos = transform.position;
-            pos.x += Random.Range(-randX, randX);
-            pos.y += calcY;
-            pos.z += Random.Range(-randZ, randZ);
-            ObjectPool.instance.InstantiateOP(sphere, pos, transform.rotation);
+            GenerateObj();
         }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            GenerateObj();
+        }
+    }
+
+    private void GenerateObj()
+    {
+        Vector3 pos = transform.position;
+        pos.x += Random.Range(-randX, randX);
+        pos.y += calcY;
+        pos.z += Random.Range(-randZ, randZ);
+        ObjectPool.instance.InstantiateOP(sphere, pos, transform.rotation);
     }
 }
