@@ -59,7 +59,7 @@ public class ObjectPool : MonoBehaviour
             opGoList[i].transform.parent = transform;
             opGoList[i].SetActive(false);
         }
-        curGoCount = objCount - validGoCount;
+        curGoCount = validGoCount;
         totalGoCount = objCount;
     }
 }
