@@ -4,15 +4,26 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    // Start is called before the first frame update
+    GameObject sphere;
+    BoxCollider boxCol;
+    [SerializeField] string sphereString = "Sphere";
+    [SerializeField] float randX = 10;
+    [SerializeField] float calcY = -5;
+    [SerializeField] float randZ = 10;
     void Start()
     {
-        
+        sphere = (GameObject)Resources.Load(sphereString);
+        boxCol = GetComponent<BoxCollider>();
     }
-
-    // Update is called once per frame
     void Update()
     {
-        
+        if(Input.GetKey(KeyCode.Alpha1))
+        {
+            Vector3 pos = transform.position;
+            pos.x += Random.Range(-randX, randX);
+            pos.y += calcY;
+            pos.z += Random.Range(-randZ, randZ);
+            Instantiate(sphere, pos, transform.rotation);
+        }
     }
 }
