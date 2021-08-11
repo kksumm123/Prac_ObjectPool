@@ -38,6 +38,8 @@ public class ObjectPool : MonoBehaviour
             {
                 item.SetActive(true);
                 item.transform.parent = null;
+                item.transform.position = position;
+                item.transform.rotation = rotation;
                 isPopping = true;
                 break;
             }
